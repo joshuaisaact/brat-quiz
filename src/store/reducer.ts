@@ -4,6 +4,8 @@ export type Action =
   | { type: "dataReceived"; payload: Question[] }
   | { type: "dataFailed" }
   | { type: "start" }
+  | { type: "answer"; score: number }
+  | { type: "nextQuestion" }
   | { type: "finished" };
 
 export const initialState: State = {
@@ -29,6 +31,20 @@ export function reducer(state: State = initialState, action: Action): State {
     case "start":
       return {
         ...state,
+        status: "active",
+        index: 0,
+        score: 0,
+      };
+    case "answer":
+      return {
+        ...state,
+        score: action.score,
+        status: "answered",
+      };
+    case "nextQuestion":
+      return {
+        ...state,
+        index: state.index + 1,
         status: "active",
       };
     case "finished":

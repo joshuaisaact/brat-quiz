@@ -7,7 +7,7 @@ export interface Question {
 
 export interface State {
   questions: Question[];
-  status: "loading" | "ready" | "error" | "active" | "finished";
+  status: "loading" | "ready" | "error" | "active" | "answered" | "finished";
   index: number;
   score: number;
 }

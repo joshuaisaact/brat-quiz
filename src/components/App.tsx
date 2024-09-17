@@ -30,9 +30,15 @@ function App() {
       {status === "ready" && (
         <StartScreen numQuestions={numQuestions} dispatch={dispatch} />
       )}
-      {status === "active" && (
-        <Question dispatch={dispatch} question={questions[index]} />
-      )}
+      {status === "active" || status === "answered" ? (
+        <Question
+          dispatch={dispatch}
+          question={questions[index]}
+          index={index}
+          score={score}
+          totalQuestions={numQuestions}
+        />
+      ) : null}
       {status === "finished" && (
         <FinishScreen score={score} dispatch={dispatch} />
       )}
