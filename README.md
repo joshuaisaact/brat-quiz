@@ -6,7 +6,7 @@ https://joshuaisaact.github.io/bratQuiz/
 
 **brat or not**, a trivia game loosely based on charli xcx's "brat summer" aesthetic. think you know what's brat and what's not? it’s a pretty simple game — just make some quick decisions on random pop culture, lifestyle, and trends. some of it fits the brat vibe, some of it doesn’t. you get the idea.
 
-refactored using typescript into react.
+refactored using typeScript and react with a new state management system via useReducer.
 
 ##### features
 
@@ -35,13 +35,18 @@ this game has a **brat summer** vibe, i guess. it’s got some attitude, bold co
 
 ##### code overview
 
-#### javascript
+#### react
 
-the game runs on basic javascript, using straightforward DOM manipulation to show questions, take user input, and keep the game going:
+the game is built using react and deployed using vite. state management is handled using react’s useReducer hook, providing a more structured way of updating and controlling the game state.
 
-- **question array**: all the questions and answers are just stored in an array of objects.
-- **event listeners**: buttons are tied to event listeners for handling guesses, moving the game along, and restarting.
+#### typescript
+
+typeScript is used to ensure type safety across the app:
+
+- **question data**: the trivia questions are stored locally in a JSON file, and there’s also an option for using json-server to simulate API requests for local testing.
 - **dynamic updates**: content and background colors change based on whether the guess is right or wrong. pretty simple.
+- **Reducer pattern**: Game actions like starting, answering, or finishing are handled via dispatched actions to the reducer. This ensures clean and predictable state transitions.
+
 
 #### css
 
@@ -50,6 +55,21 @@ the design is minimal, styled with CSS to give it a **brat summer** vibe. colors
 #### html
 
 the HTML is clean and simple, with a layout that includes buttons and text areas. everything changes based on how the game progresses.
+
+#### state Management with reducer
+
+The game uses a useReducer hook for state management. Here's an overview of how it works:
+
+initial state: The game starts with a loading status and no questions or score.
+
+actions:
+
+dataReceived: loads questions from the JSON file and sets the game to "ready."
+start: starts the game, resetting the index and score.
+answer: updates the score based on whether the guess was correct.
+nextQuestion: moves to the next question.
+finished: ends the game and shows the final score.
+restart: resets the game for a new playthrough.
 
 ## Installation & Setup
 
