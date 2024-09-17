@@ -16,12 +16,29 @@ function App() {
 
   const numQuestions: number = questions.length;
 
+  // Locally hosted questions
   useEffect(function () {
-    fetch("http://localhost:9000/questions")
-      .then((res) => res.json())
-      .then((data) => dispatch({ type: "dataReceived", payload: data }))
-      .catch(() => dispatch({ type: "dataFailed" }));
+    async function FetchData() {
+      try {
+        const response = await fetch("/data/questions.json");
+        console.log(response);
+        const data = await response.json();
+        console.log(data);
+        dispatch({ type: "dataReceived", payload: data.questions });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+    FetchData();
   }, []);
+
+  // For testing as an API using json-server. Not used in GH Pages implementation
+  // useEffect(function () {
+  //   fetch("http://localhost:9000/questions")
+  //     .then((res) => res.json())
+  //     .then((data) => dispatch({ type: "dataReceived", payload: data }))
+  //     .catch(() => dispatch({ type: "dataFailed" }));
+  // }, []);
 
   return (
     <Main>

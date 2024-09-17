@@ -4,6 +4,7 @@ export type Action =
   | { type: "dataReceived"; payload: Question[] }
   | { type: "dataFailed" }
   | { type: "start" }
+  | { type: "restart" }
   | { type: "answer"; score: number }
   | { type: "nextQuestion" }
   | { type: "finished" };
@@ -27,6 +28,11 @@ export function reducer(state: State = initialState, action: Action): State {
       return {
         ...state,
         status: "error",
+      };
+    case "restart":
+      return {
+        ...state,
+        status: "ready",
       };
     case "start":
       return {
