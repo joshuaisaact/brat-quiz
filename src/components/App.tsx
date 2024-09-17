@@ -20,7 +20,9 @@ function App() {
   useEffect(function () {
     async function FetchData() {
       try {
-        const response = await fetch("breact-quiz/data/questions.json");
+        const response = await fetch(
+          `${import.meta.env.BASE_URL}data/questions.json`,
+        );
         console.log(response);
         const data = await response.json();
         console.log(data);
