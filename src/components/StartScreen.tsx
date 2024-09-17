@@ -3,16 +3,16 @@ import { Action } from "../store/reducer.ts";
 import Button from "./Button.tsx";
 
 interface StartScreenProps {
-  numQuestions: number;
   dispatch: Dispatch<Action>;
 }
 
-function StartScreen({ numQuestions, dispatch }: StartScreenProps) {
+function StartScreen({ dispatch }: StartScreenProps) {
   return (
     <div>
-      <h2>brat</h2>
-      <h3>{numQuestions} questions to test your brat knowledge</h3>
-      <Button onClick={() => dispatch({ type: "start" })}>Let's Start!</Button>
+      <h1>brat</h1>
+      <h1>or</h1>
+      <h1>not</h1>
+      <Button onClick={() => dispatch({ type: "start" })}>start</Button>
     </div>
   );
 }

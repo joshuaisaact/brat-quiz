@@ -9,6 +9,6 @@ button {
   font-family: "Arial Narrow";
   font-weight: 500;
   filter: blur(0.5px);
-  margin: 0 3rem;
+  margin: 3rem;
   color: #000;
 }

@@ -9,7 +9,7 @@ interface FinishScreenProps {
 
 function FinishScreen({ score, dispatch }: FinishScreenProps) {
   return (
-    <div>
+    <div className="result">
       <h1>you got {score}</h1>
       <Button onClick={() => dispatch({ type: "start" })}>try again</Button>
     </div>
