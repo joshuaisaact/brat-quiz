@@ -1,0 +1,14 @@
+button {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  font-size: 2rem;
+  font-family: "Arial Narrow";
+  font-weight: 500;
+  filter: blur(0.5px);
+  margin: 0 3rem;
+  color: #000;
+}

@@ -1,7 +1,8 @@
 import { Dispatch } from "react";
 import { Question as QuestionType } from "../types/types";
 import { Action } from "../store/reducer.ts";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Button from "./Button.tsx";
 
 interface QuestionProps {
   question: QuestionType;
@@ -20,6 +21,21 @@ function Question({
 }: QuestionProps) {
   const [answered, setAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+
+  useEffect(
+    function () {
+      if (answered) {
+        document.body.style.backgroundColor = isCorrect ? "#8acf00" : "red";
+      } else {
+        document.body.style.backgroundColor = "white";
+      }
+
+      return () => {
+        document.body.style.backgroundColor = "";
+      };
+    },
+    [answered, isCorrect],
+  );
 
   function handleAnswer(isCorrect: boolean) {
     setAnswered(true);
@@ -44,12 +60,12 @@ function Question({
       {!answered ? (
         <>
           <h4>{question.name}</h4>
-          <button onClick={() => handleAnswer(question.answer === "brat")}>
+          <Button onClick={() => handleAnswer(question.answer === "brat")}>
             brat
-          </button>
-          <button onClick={() => handleAnswer(question.answer === "not brat")}>
+          </Button>
+          <Button onClick={() => handleAnswer(question.answer === "not brat")}>
             not brat
-          </button>
+          </Button>
         </>
       ) : (
         <h1>{isCorrect ? "right" : "wrong"}</h1>

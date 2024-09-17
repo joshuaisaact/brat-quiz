@@ -1,5 +1,6 @@
 import { Dispatch } from "react";
 import { Action } from "../store/reducer.ts";
+import Button from "./Button.tsx";
 
 interface FinishScreenProps {
   score: number;
@@ -10,7 +11,7 @@ function FinishScreen({ score, dispatch }: FinishScreenProps) {
   return (
     <div>
       <h1>you got {score}</h1>
-      <button onClick={() => dispatch({ type: "start" })}>try again</button>
+      <Button onClick={() => dispatch({ type: "start" })}>try again</Button>
     </div>
   );
 }
