@@ -1,0 +1,6 @@
+.score {
+  position: fixed;
+  width: 100%;
+  bottom: 2%;
+  align-self: center;
+}

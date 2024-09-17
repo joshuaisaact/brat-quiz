@@ -20,15 +20,3 @@ h1 {
   filter: blur(1px);
   margin-bottom: 10rem;
 }
-
-.score {
-  position: fixed;
-  width: 100%;
-  bottom: 2%;
-  align-self: center;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-}

@@ -2,8 +2,9 @@ import { Dispatch } from "react";
 import { Question as QuestionType } from "../types/types";
 import { Action } from "../store/reducer.ts";
 import { useState, useEffect } from "react";
-import Button from "./Button.tsx";
-import "./App.css";
+import AnswerButtons from "./AnswerButtons.tsx";
+import QuestionTitle from "./QuestionTitle.tsx";
+import Score from "./Score.tsx";
 
 interface QuestionProps {
   question: QuestionType;
@@ -22,18 +23,6 @@ function Question({
 }: QuestionProps) {
   const [answered, setAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-
-  useEffect(
-    function () {
-      const originalTitle = document.title;
-      document.title = question.name;
-
-      return () => {
-        document.title = originalTitle;
-      };
-    },
-    [question.name],
-  );
 
   // Changes background colour of page depending on right or wrong answer
   useEffect(
@@ -73,22 +62,17 @@ function Question({
     <>
       {!answered ? (
         <>
-          <h1 className="guess">{question.name}</h1>
-          <div>
-            <Button onClick={() => handleAnswer(question.answer === "brat")}>
-              brat
-            </Button>
-            <Button
-              onClick={() => handleAnswer(question.answer === "not brat")}
-            >
-              not brat
-            </Button>
-          </div>
+          <QuestionTitle questionTopic={question.name} />
+          <AnswerButtons
+            onAnswer={handleAnswer}
+            correctAnswer={question.answer}
+          />
         </>
       ) : (
         <h1>{isCorrect ? "right" : "wrong"}</h1>
       )}
-      <div className="score">score: {score}</div>
+
+      <Score score={score} />
     </>
   );
 }

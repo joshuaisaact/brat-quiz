@@ -1,8 +1,8 @@
 import { MainProps } from "../types/types";
-import "./App.css";
+import styles from "./Main.module.css";
 
 function Main({ children }: MainProps) {
-  return <main className="main">{children}</main>;
+  return <main className={styles.main}>{children}</main>;
 }
 
 export default Main;
