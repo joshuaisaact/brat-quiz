@@ -78,21 +78,27 @@ To run this game locally:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-repo/brat-or-not.git
+   git clone https://github.com/joshuaisaact/breact-quiz.git
    ```
 
 2. Navigate to the project folder:
 
    ```bash
-   cd brat-or-not
+   cd breact-quiz
    ```
 
-3. Open the `index.html` file in your browser:
+3. Install the dependencies:
 
    ```bash
-   open index.html
+   npm install
    ```
 
+4. Run the preview:
+
+   ```bash
+   npm run dev
+   ```
+   
    or use Live Server in VSCode to run the project.
 
 ##### future enhancements
