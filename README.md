@@ -64,12 +64,12 @@ initial state: The game starts with a loading status and no questions or score.
 
 actions:
 
-dataReceived: loads questions from the JSON file and sets the game to "ready."
-start: starts the game, resetting the index and score.
-answer: updates the score based on whether the guess was correct.
-nextQuestion: moves to the next question.
-finished: ends the game and shows the final score.
-restart: resets the game for a new playthrough.
+- dataReceived: loads questions from the JSON file and sets the game to "ready."
+- start: starts the game, resetting the index and score.
+- answer: updates the score based on whether the guess was correct.
+- nextQuestion: moves to the next question.
+- finished: ends the game and shows the final score.
+- restart: resets the game for a new playthrough.
 
 ## Installation & Setup
 
